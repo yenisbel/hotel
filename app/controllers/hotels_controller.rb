@@ -1,14 +1,10 @@
-require 'open-uri'
-require 'json'
-
-
 class HotelsController < ApplicationController
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
   # GET /hotels
   # GET /hotels.json
-  def index   
-    puts "********** params #{params.inspect} "           
+  def index
+    @hotels = Hotel.all
   end
 
   # GET /hotels/1
@@ -73,7 +69,6 @@ class HotelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hotel_params
-      params[:hotel]
+      params.require(:hotel).permit(:name, :stars, :description)
     end
-
 end

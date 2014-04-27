@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hotel.name %>
+</p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= @hotel.stars %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @hotel.description %>
+</p>
+
+<p>
+  <strong>Rooms:</strong>
+  <% @hotel.rooms.each do  |room| %> 
+    <%= room.name %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_hotel_path(@hotel) %> |
+<%= link_to 'Back', hotels_path %>

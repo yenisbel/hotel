@@ -18,7 +18,7 @@ class RoomsControllerTest < ActionController::TestCase
 
   test "should create room" do
     assert_difference('Room.count') do
-      post :create, room: {  }
+      post :create, room: { description: @room.description, hotel_id: @room.hotel_id, name: @room.name, price: @room.price }
     end
 
     assert_redirected_to room_path(assigns(:room))
@@ -35,7 +35,7 @@ class RoomsControllerTest < ActionController::TestCase
   end
 
   test "should update room" do
-    patch :update, id: @room, room: {  }
+    patch :update, id: @room, room: { description: @room.description, hotel_id: @room.hotel_id, name: @room.name, price: @room.price }
     assert_redirected_to room_path(assigns(:room))
   end
 

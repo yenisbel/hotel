@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416110234) do
+ActiveRecord::Schema.define(version: 20140427134422) do
 
   create_table "hotels", force: true do |t|
+    t.string   "name"
+    t.integer  "stars"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "rooms", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "price"
+    t.integer  "hotel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "rooms", ["hotel_id"], name: "index_rooms_on_hotel_id"
 
 end
